@@ -18,17 +18,8 @@ class Stopwatch {
         this.display.innerText = this.format(this.times)
 	}
 
-	pad0(value) {
-		let result = value.toString()
-		const resultLength = result.length
-		if (resultLength <2) {
-			result = 0 + result
-		}
-		return result
-	}
-
 	format(times) {
-        return `${this.pad0(times.minutes)}:${this.pad0(times.seconds)}:${this.pad0(Math.floor(times.miliseconds))}`
+        return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`
 	}
 
 	start() {
@@ -61,6 +52,14 @@ class Stopwatch {
 	    clearInterval(this.watch)
 	}
 
+}
+
+function pad0(value) {
+	let result = value.toString()
+	if (result.length <2) {
+		result = 0 + result
+	}
+	return result
 }
 
 const stopwatch = new Stopwatch(

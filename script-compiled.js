@@ -29,19 +29,9 @@ var Stopwatch = function () {
 												this.display.innerText = this.format(this.times);
 								}
 				}, {
-								key: 'pad0',
-								value: function pad0(value) {
-												var result = value.toString();
-												var resultLength = result.length;
-												if (resultLength < 2) {
-																result = 0 + result;
-												}
-												return result;
-								}
-				}, {
 								key: 'format',
 								value: function format(times) {
-												return this.pad0(times.minutes) + ':' + this.pad0(times.seconds) + ':' + this.pad0(Math.floor(times.miliseconds));
+												return pad0(times.minutes) + ':' + pad0(times.seconds) + ':' + pad0(Math.floor(times.miliseconds));
 								}
 				}, {
 								key: 'start',
@@ -85,6 +75,14 @@ var Stopwatch = function () {
 
 				return Stopwatch;
 }();
+
+function pad0(value) {
+				var result = value.toString();
+				if (result.length < 2) {
+								result = 0 + result;
+				}
+				return result;
+}
 
 var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
 
