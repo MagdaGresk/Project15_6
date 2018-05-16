@@ -1,7 +1,7 @@
 {
-  "name": "PROJECT15_3",
+  "name": "PROJECT15_6",
   "version": "1.0.0",
-  "description": "",
+  "description": "timer",
   "main": "index.js",
   "scripts": {
     "test": "npm-run-all test:*",
